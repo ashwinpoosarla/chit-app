@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
-import { HomePage } from '../pages/home/home';
+//import { HomePage } from '../pages/home/home';
+import { AuthPage } from '../pages/auth/auth';
 import * as firebase from 'firebase';
 
 const fireConfig = {
@@ -18,8 +18,8 @@ const fireConfig = {
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = HomePage;
-
+  rootPage:any = AuthPage;
+  //rootPage:any = HomePage;
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
