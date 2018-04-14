@@ -3,3 +3,16 @@ git add new repo
 https://stackoverflow.com/questions/3311774/how-to-convert-existing-non-empty-directory-into-a-git-working-directory-and-pus
 
 ################################################################
+
+
+################################################################
+Dev notes
+----------------------------------------------------------------
+
+- Firebase user authentication
+- disable back in home(dashboard) page ref: https://www.gajotres.net/ionic-2-3-how-to-manage-hardware-back-button-event-like-a-pro/
+- disable back in Add/Update user page
+- Add spinner to the firebase API calls
+- Delete user - update IDs of all the users
+- form validations
+################################################################

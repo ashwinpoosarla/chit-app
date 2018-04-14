@@ -7,9 +7,7 @@ import { AuthPage } from '../pages/auth/auth';
 //import { Agent } from '../pages/agent/agent';
 import * as firebase from 'firebase';
 import { UserService } from '../common/services/user.services';
-
-
-
+ 
 @Component({
   templateUrl: 'app.html'
 })

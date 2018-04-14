@@ -14,7 +14,7 @@ import { UserService } from '../../common/services/user.services';
     }
   
     ngOnInit(){
-      
+        this.users = this._user.getUsers();
     }
 
     updateUser(u) {

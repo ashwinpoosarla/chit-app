@@ -47,15 +47,26 @@
             <ion-label floating>Address</ion-label>
             <ion-input type="text" [(ngModel)]="modifyUser.ADDRESS" name="address"></ion-input>
         </ion-item> 
-        
-        <ion-footer>
-            <button ion-button small (click)="onSubmit()">
-                <span *ngIf="isAdd">Add</span>
-                <span *ngIf="!isAdd">Update</span>
-            </button>
-            <button ion-button small (click)="onDelete()">
-                <span *ngIf="!isAdd">Delete</span>
-            </button>  
-        </ion-footer>
+
+        <ion-grid>
+            <ion-row>
+                <ion-col col-4>
+                    <button ion-button small block (click)="onSubmit()">
+                        <span *ngIf="isAdd">Add</span>
+                        <span *ngIf="!isAdd">Update</span>
+                    </button>
+                </ion-col>
+                <ion-col col-4>
+                    <button ion-button small block color="danger" (click)="onDelete()" *ngIf="!isAdd">
+                        <span>Delete</span>
+                    </button> 
+                </ion-col>
+                <ion-col col-4>
+                    <button ion-button small block color="dark" (click)="gotoList()">
+                        <span>List</span>
+                    </button> 
+                </ion-col>
+            </ion-row>
+        </ion-grid> 
     </form>
 </ion-content>

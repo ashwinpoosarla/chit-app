@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import * as _ from 'underscore';
 //import * as firebase from 'firebase';
 
 @Injectable()
@@ -47,6 +48,16 @@ export class UserService {
 
   getUser() {
     return this.user;
+  }
+
+  generateId(){
+    let id = 1;
+    if(this.users.length > 0){
+      let temp = _.pluck(this.users, 'ID');
+      id = Math.max.apply(null, temp);
+    }
+
+    return id+1;
   }
 
 }

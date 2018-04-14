@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import * as firebase from 'firebase';
+import { ListPage } from '../list/list';
 import { UserService } from '../../common/services/user.services';
 
 @Component({
@@ -32,18 +34,49 @@ import { UserService } from '../../common/services/user.services';
     }
 
     onSubmit(){
+        let dbRef = firebase.database().ref('USERS/');
+        let idx = 1;
+        
         if(this.isAdd){
-            //TODO add this.modifyUser
+            idx = this._user.generateId();
+            this.modifyUser.ID = idx;
+            dbRef.child(idx.toString()).set(this.modifyUser, function(error){
+                if (error) {
+                    console.error("User could not be added." + error);
+                  } else {
+                        console.log('-----User added-----');
+                        this._user.fetchUsers();
+                  }
+            }.bind(this));
         }
         else{
-            //TODO update this.modifyUser
+            dbRef.child(this.modifyUser.ID.toString()).update(this.modifyUser, function(error){
+                if (error) {
+                    console.error("User could not be modified." + error);
+                  } else {
+                    console.log('-----User updated-----');
+                    this._user.fetchUsers();
+                  }
+            }.bind(this))
         }
         console.log(this.modifyUser);
     }
 
     onDelete(){
         //Delete this.modifyUser
+        let dbRef = firebase.database().ref('USERS/');
+        dbRef.child(this.modifyUser.ID.toString()).remove(function(error){
+            if (error) {
+                console.error("User could not be deleted." + error);
+            } else {
+                console.log('-----User deleted-----');
+                this._user.fetchUsers();
+            }
+        }.bind(this));
+    }
 
+    gotoList(){
+        this.navCtrl.push(ListPage);
     }
   }
   
