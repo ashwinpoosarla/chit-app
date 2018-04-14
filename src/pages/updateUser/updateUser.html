@@ -1,0 +1,61 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+        <span *ngIf="isAdd">Add User</span>
+        <span *ngIf="!isAdd">Update User</span>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <form>
+        <ion-item>
+            <ion-label floating>Name</ion-label>
+            <ion-input type="text" [(ngModel)]="modifyUser.NAME" name="userName"></ion-input>
+        </ion-item> 
+
+        <ion-item>
+            <ion-label floating>Phone</ion-label>
+            <ion-input type="number" [(ngModel)]="modifyUser.PHONE" name="phone"></ion-input>
+        </ion-item> 
+
+        <ion-item>
+            <ion-label floating>Alternative Number</ion-label>
+            <ion-input type="number" [(ngModel)]="modifyUser.SECONDARY_PHONE" name="secondaryPhone"></ion-input>
+        </ion-item>
+        <ion-list>
+            <ion-list-header>
+                Type
+            </ion-list-header>
+            <ion-item>
+                <ion-label>Agent</ion-label>
+                <ion-checkbox [(ngModel)]="modifyUser.IS_AGENT" name="agent"></ion-checkbox>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label>Admin</ion-label>
+                <ion-checkbox [(ngModel)]="modifyUser.IS_ADMIN" name="admin"></ion-checkbox>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Customer</ion-label>
+                <ion-checkbox [(ngModel)]="modifyUser.IS_CUSTOMER" name="customer"></ion-checkbox>
+            </ion-item>
+        </ion-list>
+
+        <ion-item>
+            <ion-label floating>Address</ion-label>
+            <ion-input type="text" [(ngModel)]="modifyUser.ADDRESS" name="address"></ion-input>
+        </ion-item> 
+        
+        <ion-footer>
+            <button ion-button small (click)="onSubmit()">
+                <span *ngIf="isAdd">Add</span>
+                <span *ngIf="!isAdd">Update</span>
+            </button>
+            <button ion-button small (click)="onDelete()">
+                <span *ngIf="!isAdd">Delete</span>
+            </button>  
+        </ion-footer>
+    </form>
+</ion-content>

@@ -1,0 +1,19 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+        List
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <button ion-item *ngFor="let user of users" (click)="updateUser(user)">
+            {{ user.NAME }}
+        </button>  
+    </ion-list>
+
+    <ion-footer class="footer">
+        <button ion-button small (click)="addUser()">Add</button>
+    </ion-footer>
+</ion-content>

@@ -7,7 +7,12 @@
 </ion-header>
 
 <ion-content padding>
-    <h1>Welcome to My Awesome App</h1>
     <div id="firebaseui-auth-container"></div>
     <div id="loader">Loading...</div>
+    <ion-item>
+      <ion-label floating>Mobile Number</ion-label>
+      <ion-input type="text" [(ngModel)]="phoneNumber"></ion-input>
+    </ion-item>
+    <br />
+    <button ion-button small block (click)="validateUser()">Log In</button>
 </ion-content>

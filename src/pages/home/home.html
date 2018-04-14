@@ -1,19 +1,45 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Dashboard
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  This is home page.
   <p>
     <!-- If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide. -->
   </p>
-  {{ value.NAME }}
   <!-- <ion-spinner></ion-spinner> -->
+  <ion-card *ngIf="user.IS_AGENT">
+    <ion-card-header>
+      Daily Collections
+    </ion-card-header>
+    <ion-card-content>
+      Collection sheet used for daily transaction
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="user.IS_ADMIN" (click)="navigateToList()">
+    <ion-card-header>
+      User
+    </ion-card-header>
+    <ion-card-content>
+      List, Add, Modify and delete user. A user can be Admin or Agent or Customer
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="user.IS_CUSTOMER">
+    <ion-card-header>
+      Passbook
+    </ion-card-header>
+    <ion-card-content>
+      Customers to see their transaction data
+    </ion-card-content>
+  </ion-card>
+
   <p>
     <a href="#" (click)="navigate()">Agents</a>
+    <a href="#" (click)="navigateClient()">Client</a>
   </p>
 </ion-content>
