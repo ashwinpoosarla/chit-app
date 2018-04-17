@@ -13,6 +13,6 @@ Dev notes
 - disable back in home(dashboard) page ref: https://www.gajotres.net/ionic-2-3-how-to-manage-hardware-back-button-event-like-a-pro/
 - disable back in Add/Update user page
 - Add spinner to the firebase API calls
-- Delete user - update IDs of all the users
 - form validations
+- ****order of data stored. if users in firebase are [{}, null, {}], then list page throws error. null comes if a user is deleted from the middle of the list
 ################################################################
