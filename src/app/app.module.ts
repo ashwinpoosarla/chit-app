@@ -9,11 +9,14 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AuthPage } from '../pages/auth/auth';
 import { ListPage } from '../pages/list/list';
+import { GroupPage } from '../pages/groups/groups';
+import { MembersPage } from '../pages/members/members';
 import { UpdateUserPage } from '../pages/updateUser/updateUser';
 
 //services
 import { HttpClientModule } from '@angular/common/http';
 import { UserService } from '../common/services/user.services';
+import { GroupService } from '../common/services/group.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,9 @@ import { UserService } from '../common/services/user.services';
     HomePage,
     AuthPage,
     ListPage,
-    UpdateUserPage
+    UpdateUserPage,
+    GroupPage,
+    MembersPage
   ],
   imports: [
     BrowserModule,
@@ -35,13 +40,16 @@ import { UserService } from '../common/services/user.services';
     HomePage,
     AuthPage,
     ListPage,
-    UpdateUserPage
+    UpdateUserPage,
+    GroupPage,
+    MembersPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserService
+    UserService,
+    GroupService
   ]
 })
 export class AppModule {}

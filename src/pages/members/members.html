@@ -1,0 +1,19 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+        Members
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-item>
+        <ion-label>Group number:</ion-label>
+        <ion-label>{{ selectedGroup.GROUP_NUMBER }}</ion-label>
+    </ion-item>
+    <ion-list>
+        <button ion-item *ngFor="let member of selectedGroup.MEMBERS">
+            {{ member.NAME }}
+        </button>
+    </ion-list>
+</ion-content>

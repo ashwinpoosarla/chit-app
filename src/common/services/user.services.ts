@@ -13,9 +13,27 @@ export class UserService {
 
   }
 
+  convertObjectToArray(object) {
+    let a = [];
+    a = Object.keys(object).map( i => object[i]);
+    a = a.filter(n => {
+      return n != null && n != undefined;
+    });
+    return a;
+  }
+
+  generateId(){
+    let id = 1;
+    if(this.users.length > 0){
+      let temp = _.pluck(this.users, 'ID');
+      id = Math.max.apply(null, temp);
+    }
+    return id+1;
+  }
+
   fetchUsers() {
     this.http.get('https://chit-posting.firebaseio.com/USERS.json').subscribe(data => {
-      this.setUsers(this.returnActualUsers(data) || []);
+      this.setUsers(this.returnActualUsers(data) || {});
     });
   }
 
@@ -28,6 +46,7 @@ export class UserService {
   }
 
   returnActualUsers(u){
+    u = this.convertObjectToArray(u);
     if(this.isProd){
       u.splice(0, 1);
     }
@@ -48,16 +67,6 @@ export class UserService {
 
   getUser() {
     return this.user;
-  }
-
-  generateId(){
-    let id = 1;
-    if(this.users.length > 0){
-      let temp = _.pluck(this.users, 'ID');
-      id = Math.max.apply(null, temp);
-    }
-
-    return id+1;
   }
 
 }

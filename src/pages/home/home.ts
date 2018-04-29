@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 //import * as firebase from 'firebase';
 import { ListPage } from '../list/list';
+import { GroupPage } from '../groups/groups';
 import { UserService } from '../../common/services/user.services';
 
 @Component({
@@ -24,6 +25,10 @@ export class HomePage {
 
   navigateToList(){
     this.navCtrl.push(ListPage);
+  }
+
+  navigateToGroups() {
+    this.navCtrl.push(GroupPage);
   }
 
   ngOnInit(){

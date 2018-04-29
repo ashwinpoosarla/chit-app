@@ -1,0 +1,19 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+        Groups
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-item (click)="addGroup()">
+        <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon> <a>Add Group</a>
+    </ion-item>
+    <ion-list>
+        <button ion-item *ngFor="let group of groups" (click)="fetchMemberDetails(group)">
+            {{ group.GROUP_NUMBER }}
+        </button>  
+    </ion-list>
+
+</ion-content>

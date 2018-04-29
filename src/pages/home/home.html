@@ -6,7 +6,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="cards">
   <p>
     <!-- If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide. -->
   </p>
@@ -28,6 +28,15 @@
       List, Add, Modify and delete user. A user can be Admin or Agent or Customer
     </ion-card-content>
   </ion-card>
+
+  <ion-card *ngIf="user.IS_ADMIN" (click)="navigateToGroups()">
+      <ion-card-header>
+        Groups
+      </ion-card-header>
+      <ion-card-content>
+        Group and member details.
+      </ion-card-content>
+    </ion-card>
 
   <ion-card *ngIf="user.IS_CUSTOMER">
     <ion-card-header>
