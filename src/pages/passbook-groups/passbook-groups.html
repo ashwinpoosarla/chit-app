@@ -1,0 +1,15 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+        Transaction Groups
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-card *ngFor="let groupNumber of associatedGroups" (click)="transactionDetails(groupNumber)">
+        <ion-card-header>
+            {{ groupNumber }}
+        </ion-card-header>
+    </ion-card>
+</ion-content>

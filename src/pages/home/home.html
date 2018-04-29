@@ -38,7 +38,7 @@
       </ion-card-content>
     </ion-card>
 
-  <ion-card *ngIf="user.IS_CUSTOMER">
+  <ion-card *ngIf="user.IS_CUSTOMER" (click)="navigateToPassbookGroups()">
     <ion-card-header>
       Passbook
     </ion-card-header>

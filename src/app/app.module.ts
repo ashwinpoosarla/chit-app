@@ -12,11 +12,14 @@ import { ListPage } from '../pages/list/list';
 import { GroupPage } from '../pages/groups/groups';
 import { MembersPage } from '../pages/members/members';
 import { UpdateUserPage } from '../pages/updateUser/updateUser';
+import { PassbookGroupPage } from '../pages/passbook-groups/passbook-groups';
+import { PassbookDetailsPage } from '../pages/passbook-details/passbook-details';
 
 //services
 import { HttpClientModule } from '@angular/common/http';
 import { UserService } from '../common/services/user.services';
 import { GroupService } from '../common/services/group.service';
+import { TransactionService } from '../common/services/transaction.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,9 @@ import { GroupService } from '../common/services/group.service';
     ListPage,
     UpdateUserPage,
     GroupPage,
-    MembersPage
+    MembersPage,
+    PassbookGroupPage,
+    PassbookDetailsPage
   ],
   imports: [
     BrowserModule,
@@ -42,14 +47,17 @@ import { GroupService } from '../common/services/group.service';
     ListPage,
     UpdateUserPage,
     GroupPage,
-    MembersPage
+    MembersPage,
+    PassbookGroupPage,
+    PassbookDetailsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserService,
-    GroupService
+    GroupService,
+    TransactionService
   ]
 })
 export class AppModule {}

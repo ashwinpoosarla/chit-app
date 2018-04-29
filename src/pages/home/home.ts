@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 //import * as firebase from 'firebase';
 import { ListPage } from '../list/list';
 import { GroupPage } from '../groups/groups';
+import { PassbookGroupPage } from '../passbook-groups/passbook-groups';
 import { UserService } from '../../common/services/user.services';
 
 @Component({
@@ -29,6 +30,10 @@ export class HomePage {
 
   navigateToGroups() {
     this.navCtrl.push(GroupPage);
+  }
+
+  navigateToPassbookGroups() {
+    this.navCtrl.push(PassbookGroupPage);
   }
 
   ngOnInit(){
