@@ -10,8 +10,11 @@
     <div id="firebaseui-auth-container"></div>
     <ion-item>
       <ion-label floating>Mobile Number</ion-label>
-      <ion-input type="text" [(ngModel)]="phoneNumber"></ion-input>
+      <ion-input type="number" [(ngModel)]="phoneNumber"></ion-input>
     </ion-item>
     <br />
     <button ion-button small block (click)="validateUser()">Log In</button>
+    <p *ngIf="showError" class="error">
+      Please enter valid phone number
+    </p>
 </ion-content>

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { UserService } from './user.services';
 import { GroupService } from './group.service';
-import * as _ from 'underscore';
 
 @Injectable()
 export class TransactionService {

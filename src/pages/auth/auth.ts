@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 //import * as firebase from 'firebase';
 import { UserService } from '../../common/services/user.services';
 import { HomePage } from '../home/home';
+import * as _ from 'underscore';
 
 //services
 
@@ -13,8 +14,9 @@ import { HomePage } from '../home/home';
 export class AuthPage {
     
     //ref = firebase.database().ref('LOGON/');
-    phoneNumber: number = null;
-    users: number[];
+    phoneNumber: number;
+    users: any;
+    showError: boolean = false;
 
     constructor(public navCtrl: NavController, private _users: UserService) {
         // The start method will wait until the DOM is loaded.
@@ -26,6 +28,7 @@ export class AuthPage {
         }, (error) => {
             console.log('User error' + error);
         });*/
+        this.users = this._users.getUsers();
     }
 
     validateUser(){
@@ -33,20 +36,35 @@ export class AuthPage {
         //    return el.PHONE == this.phoneNumber;
         //});
         //return !!user;
-        let loggedUser = {
-            "EMAIL": "shreeganeshchitfund@gmail.com",
-            "ID": 0,
-            "IS_ADMIN": true,
-            "IS_AGENT": true,
-            "IS_CUSTOMER": true,
-            "NAME": "UsER1",
-            "PHONE": 9980983890,
-            "SECONDARY_PHONE": 8124639331
-        };
+        this.showError = false;
+        this.users = this._users.getUsers();
         //TODO validate user
-        console.log(this._users.getUsers());
-        this._users.setUser(loggedUser);
-        this.logInSuccess();
+        let u:any;
+        for(let i = 0; i < this.users.length; i++){
+            if(this.users[i].PHONE == this.phoneNumber){
+                u = this.users[i];
+                break;
+            }
+        }
+        /*u = {
+            ADDRESS: "bam",
+            EMAIL: "abc@xyz.com",
+            ID: 0,
+            IS_ADMIN: true,
+            IS_AGENT: true,
+            IS_CUSTOMER: true,
+            NAME: "Ashwin",
+            PHONE: 9980983890,
+            SECONDARY_PHONE: 8124639331
+        }*/
+        if(u){
+            this._users.setUser(u);
+            this.logInSuccess();
+        }
+        else{
+            console.error('LOGIN error');
+            this.showError = true;
+        }
     }
 
     logInSuccess() {
