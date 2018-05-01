@@ -14,6 +14,7 @@ import { MembersPage } from '../pages/members/members';
 import { UpdateUserPage } from '../pages/updateUser/updateUser';
 import { PassbookGroupPage } from '../pages/passbook-groups/passbook-groups';
 import { PassbookDetailsPage } from '../pages/passbook-details/passbook-details';
+import { CollectionsPage } from '../pages/collections/collections';
 
 //services
 import { HttpClientModule } from '@angular/common/http';
@@ -31,7 +32,8 @@ import { TransactionService } from '../common/services/transaction.service';
     GroupPage,
     MembersPage,
     PassbookGroupPage,
-    PassbookDetailsPage
+    PassbookDetailsPage,
+    CollectionsPage
   ],
   imports: [
     BrowserModule,
@@ -49,7 +51,8 @@ import { TransactionService } from '../common/services/transaction.service';
     GroupPage,
     MembersPage,
     PassbookGroupPage,
-    PassbookDetailsPage
+    PassbookDetailsPage,
+    CollectionsPage
   ],
   providers: [
     StatusBar,

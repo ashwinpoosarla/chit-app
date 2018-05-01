@@ -1,0 +1,41 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+        Daily Collection
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+    
+<ion-content padding>
+    <ion-card>
+        <ion-card-header>
+            Agent: {{ loggedInUser.NAME }}
+        </ion-card-header>
+    </ion-card>
+
+    <ion-item>
+        <ion-label>Customer</ion-label>
+        <ion-select [(ngModel)]="selectedCustomer">
+            <ng-template ngFor let-user [ngForOf]="users">
+                <ion-option [value]="user">{{ user.NAME }}</ion-option>
+            </ng-template>
+        </ion-select>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>Group</ion-label>
+        <ion-select [(ngModel)]="selectedGroup">
+            <ng-template ngFor let-group [ngForOf]="groups">
+                <ion-option [value]="group">{{ group.GROUP_NUMBER }}</ion-option>
+            </ng-template>
+        </ion-select>
+    </ion-item>
+
+    <ion-item>
+        <ion-label floating>Amount</ion-label>
+        <ion-input type="text" [(ngModel)]="newTransaction.AMOUNT"></ion-input>
+    </ion-item> 
+
+    <button ion-button small block (click)="addTransaction()">Add</button>
+</ion-content>
+      

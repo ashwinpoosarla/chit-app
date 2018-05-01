@@ -22,7 +22,7 @@ export class PassbookGroupPage {
       //TODO - can be filtered using the uri params https://chit-posting.firebaseio.com/USERS.json?CLIENT_ID=0
       this.http.get('https://chit-posting.firebaseio.com/TRANSACTIONS.json').subscribe(data => {
         this.transactionService.setTransactions(this.transactionService.returnActualTransactions(data));
-        this.transactionService = this.transactionService.getTransactions();
+        this.transactions = this.transactionService.getTransactions();
         this.associatedGroups = _.uniq(_.pluck(this.transactionService, 'GROUP_NUMBER'));
       });
     }

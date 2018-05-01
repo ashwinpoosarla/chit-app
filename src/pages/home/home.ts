@@ -5,6 +5,7 @@ import { ListPage } from '../list/list';
 import { GroupPage } from '../groups/groups';
 import { PassbookGroupPage } from '../passbook-groups/passbook-groups';
 import { UserService } from '../../common/services/user.services';
+import { CollectionsPage } from '../collections/collections';
 
 @Component({
   selector: 'page-home',
@@ -34,6 +35,10 @@ export class HomePage {
 
   navigateToPassbookGroups() {
     this.navCtrl.push(PassbookGroupPage);
+  }
+
+  navigateToDailyCollection() {
+    this.navCtrl.push(CollectionsPage);
   }
 
   ngOnInit(){

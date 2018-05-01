@@ -76,7 +76,7 @@ import { UserService } from '../../common/services/user.services';
     }
 
     gotoList(){
-        this.navCtrl.push(ListPage);
+        this.navCtrl.pop();
     }
   }
   
