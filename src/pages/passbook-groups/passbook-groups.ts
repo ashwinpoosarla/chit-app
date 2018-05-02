@@ -5,6 +5,7 @@ import { PassbookDetailsPage } from '../passbook-details/passbook-details';
 import { TransactionService } from '../../common/services/transaction.service';
 
 import * as _ from "underscore";
+import { UserService } from '../../common/services/user.services';
 
 @Component({
   selector: 'page-passbook-groups',
@@ -14,16 +15,20 @@ export class PassbookGroupPage {
     groups;
     transactions;
     associatedGroups;
-    constructor(private http: HttpClient, private transactionService: TransactionService, public navCtrl: NavController) { 
+    user: any;
+    constructor(private http: HttpClient, private transactionService: TransactionService, public navCtrl: NavController, 
+      private uS: UserService) { 
         
     }
 
     ngOnInit(){
       //TODO - can be filtered using the uri params https://chit-posting.firebaseio.com/USERS.json?CLIENT_ID=0
+      this.user = this.uS.getUser();
       this.http.get('https://chit-posting.firebaseio.com/TRANSACTIONS.json').subscribe(data => {
         this.transactionService.setTransactions(this.transactionService.returnActualTransactions(data));
-        this.transactions = this.transactionService.getTransactions();
-        this.associatedGroups = _.uniq(_.pluck(this.transactionService, 'GROUP_NUMBER'));
+        let t = this.transactionService.getTransactions(); 
+        this.transactions = _.where(t, {CLIENT_ID: this.user.ID});
+        this.associatedGroups = _.uniq(_.pluck(this.transactions, 'GROUP_NUMBER'));
       });
     }
 
