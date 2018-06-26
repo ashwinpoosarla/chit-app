@@ -1,0 +1,20 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+        Add Groups
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <div>
+        <ion-item>
+            <ion-label floating>Group Number</ion-label>
+            <ion-input type="number" [(ngModel)]="groupNo" name="groupNumber"></ion-input>
+        </ion-item> 
+    
+        <button ion-button small block (click)="add()">Add</button>
+    </div>
+    
+    <button ion-button small block (click)="addMember()">Add Member</button>
+</ion-content>

@@ -4,6 +4,7 @@ import { NavController } from 'ionic-angular';
 import { GroupService } from '../../common/services/group.service';
 import { MembersPage } from '../members/members';
 import * as _ from 'underscore'; 
+import { AddGroupPage } from '../add-group/add-group';
 
 @Component({
   selector: 'page-groups',
@@ -11,7 +12,6 @@ import * as _ from 'underscore';
 })
 export class GroupPage {
     groups;
-    editPage:boolean = false;
     newGroup = {
         GROUP_NUMBER: null,
         ID: null,
@@ -34,22 +34,6 @@ export class GroupPage {
     }
 
     addGroup() {
-        this.editPage = true;
-    }
-
-    add(){
-        let g = _.pluck(this.groups, 'GROUP_NUMBER');
-        g = g.map((item) => {
-            return Number(item.replace(/[a-z]/i, ''));
-        });
-
-        if(!g.includes(Number(this.groupNo))){
-            this.newGroup.GROUP_NUMBER = 'S' + this.groupNo;
-            this.newGroup.ID = 'S' + + this.groupNo;
-            
-        }
-        else{
-            console.error('Already existing group');
-        }
+        this.navCtrl.push(AddGroupPage)
     }
 }

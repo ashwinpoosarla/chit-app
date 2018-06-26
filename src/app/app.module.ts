@@ -21,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserService } from '../common/services/user.services';
 import { GroupService } from '../common/services/group.service';
 import { TransactionService } from '../common/services/transaction.service';
+import { AddGroupPage } from '../pages/add-group/add-group';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { TransactionService } from '../common/services/transaction.service';
     MembersPage,
     PassbookGroupPage,
     PassbookDetailsPage,
-    CollectionsPage
+    CollectionsPage,
+    AddGroupPage
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,8 @@ import { TransactionService } from '../common/services/transaction.service';
     MembersPage,
     PassbookGroupPage,
     PassbookDetailsPage,
-    CollectionsPage
+    CollectionsPage,
+    AddGroupPage
   ],
   providers: [
     StatusBar,

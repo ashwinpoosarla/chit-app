@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import * as firebase from 'firebase';
-import { ListPage } from '../list/list';
 import { UserService } from '../../common/services/user.services';
 
 @Component({
