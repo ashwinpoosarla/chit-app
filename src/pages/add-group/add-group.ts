@@ -41,4 +41,8 @@ export class AddGroupPage {
             console.error('Already existing group');
         }
     }
+
+    addMember() {
+        
+    }
 }

@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { NavController } from 'ionic-angular';
 import { GroupService } from '../../common/services/group.service';
 import { MembersPage } from '../members/members';
-import * as _ from 'underscore'; 
 import { AddGroupPage } from '../add-group/add-group';
 
 @Component({

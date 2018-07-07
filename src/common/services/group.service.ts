@@ -56,7 +56,7 @@ export class GroupService {
         g = _.findWhere(this.groups, {GROUP_NUMBER: gNo});
         let members = g.MEMBERS || [];
         for(let i = 0; i < members.length; i++){
-            g.MEMBERS[i] = this.fetchMemberDetails(members[i]);
+            g.MEMBERS[i] = Object.assign(g.MEMBERS[i], this.fetchMemberDetails(members[i]));
         }
         return g;
     }

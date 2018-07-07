@@ -3,7 +3,6 @@ import { NavController } from 'ionic-angular';
 //import * as firebase from 'firebase';
 import { UserService } from '../../common/services/user.services';
 import { HomePage } from '../home/home';
-import * as _ from 'underscore';
 
 //services
 

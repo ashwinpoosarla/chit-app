@@ -11,6 +11,15 @@
         <ion-label>Group number:</ion-label>
         <ion-label>{{ selectedGroup.GROUP_NUMBER }}</ion-label>
     </ion-item>
+
+    <ion-item>
+        <ion-label>Members</ion-label>
+        <ion-select [(ngModel)]="selectedUsers" multiple="true" #c (ionChange)="onChangeList()">
+            <ng-template ngFor let-user [ngForOf]="users">
+                <ion-option [value]="user">{{ user.NAME }}</ion-option>
+            </ng-template>
+        </ion-select>
+    </ion-item>
     <ion-list>
         <button ion-item *ngFor="let member of selectedGroup.MEMBERS">
             {{ member.NAME }}
