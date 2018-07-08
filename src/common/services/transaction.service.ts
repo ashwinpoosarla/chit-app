@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { UserService } from './user.services';
 import { GroupService } from './group.service';
+import { environment as ENV} from '../../environment/environment';
 
 @Injectable()
 export class TransactionService {
@@ -11,6 +12,7 @@ export class TransactionService {
 
     selectedGroup;
     constructor(private userService: UserService, private groupService: GroupService) {
+        this.isProd = ENV.production;
         this.users = this.userService.getUsers();
         this.groups = this.groupService.getGroups();
     }

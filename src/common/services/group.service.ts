@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { UserService } from './user.services';
 import * as _ from 'underscore';
+import { environment as ENV } from '../../environment/environment';
 
 @Injectable()
 export class GroupService {
@@ -9,6 +10,7 @@ export class GroupService {
     groups;
     selectedGroup;
     constructor(private _userService: UserService) {
+        this.isProd = ENV.production;
         this.users = this._userService.getUsers();
     }
 

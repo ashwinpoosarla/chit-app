@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import * as _ from 'underscore';
+import { environment as ENV } from '../../environment/environment';
 //import * as firebase from 'firebase';
 
 @Injectable()
@@ -10,7 +11,7 @@ export class UserService {
   user: {};
   
   constructor(private http: HttpClient) {
-
+    this.isProd = ENV.production;
   }
 
   convertObjectToArray(object) {
