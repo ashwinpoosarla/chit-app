@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>
+        Pin change 
+      </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    Your Pin should be four digit number and cannot start with 0.
+    
+    <ion-item>
+        <ion-label floating>Enter new pin</ion-label>
+        <ion-input type="tel" [(ngModel)]="newPin"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label floating>Re-enter new pin</ion-label>
+        <ion-input type="tel" [(ngModel)]="confirmPin"></ion-input>
+    </ion-item>
+
+    <br />
+    <button ion-button small block (click)="validatePin()">Log In</button>
+    <p *ngIf="errorMessage" class="error">
+            {{errorMessage}}
+          </p>
+</ion-content>

@@ -22,6 +22,7 @@ import { UserService } from '../common/services/user.services';
 import { GroupService } from '../common/services/group.service';
 import { TransactionService } from '../common/services/transaction.service';
 import { AddGroupPage } from '../pages/add-group/add-group';
+import { ChangePin } from '../pages/change-pin/change-pin';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AddGroupPage } from '../pages/add-group/add-group';
     PassbookGroupPage,
     PassbookDetailsPage,
     CollectionsPage,
-    AddGroupPage
+    AddGroupPage,
+    ChangePin
   ],
   imports: [
     BrowserModule,
@@ -55,7 +57,8 @@ import { AddGroupPage } from '../pages/add-group/add-group';
     PassbookGroupPage,
     PassbookDetailsPage,
     CollectionsPage,
-    AddGroupPage
+    AddGroupPage,
+    ChangePin
   ],
   providers: [
     StatusBar,

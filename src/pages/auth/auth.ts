@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 //import * as firebase from 'firebase';
 import { UserService } from '../../common/services/user.services';
 import { HomePage } from '../home/home';
+import { ChangePin } from '../change-pin/change-pin';
 
 //services
 
@@ -16,6 +17,7 @@ export class AuthPage {
     phoneNumber: number;
     users: any;
     showError: boolean = false;
+    pin: string;
 
     constructor(public navCtrl: NavController, private _users: UserService) {
         // The start method will wait until the DOM is loaded.
@@ -56,7 +58,7 @@ export class AuthPage {
             PHONE: 9980983890,
             SECONDARY_PHONE: 8124639331
         }*/
-        if(u){
+        if(u && (u.PIN === this.pin)){
             this._users.setUser(u);
             this.logInSuccess();
         }
@@ -67,7 +69,12 @@ export class AuthPage {
     }
 
     logInSuccess() {
-        this.navCtrl.push(HomePage);
+        if(this.pin.toString() !== '9999'){
+            this.navCtrl.push(HomePage);
+        }
+        else{
+            this.navCtrl.push(ChangePin);
+        }
     }
 
     ngOnInit() {

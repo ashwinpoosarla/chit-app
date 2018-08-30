@@ -15,9 +15,15 @@
       <ion-label floating>Mobile Number</ion-label>
       <ion-input type="number" [(ngModel)]="phoneNumber"></ion-input>
     </ion-item>
+
+    <ion-item>
+      <ion-label floating>Pin</ion-label>
+      <ion-input type="tel" [attr.maxlength]="4" [(ngModel)]="pin"></ion-input>
+    </ion-item>
+
     <br />
     <button ion-button small block (click)="validateUser()">Log In</button>
     <p *ngIf="showError" class="error">
-      Please enter valid phone number
+      Please enter valid phone number and Pin
     </p>
 </ion-content>

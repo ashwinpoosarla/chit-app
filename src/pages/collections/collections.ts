@@ -57,6 +57,8 @@ export class CollectionsPage {
         
     }
 
+    
+
     addTransaction() {
         this.newTransaction.AGENT_ID = this.loggedInUser.ID;
         this.newTransaction.CLIENT_ID = this.selectedCustomer.ID;
