@@ -1,16 +1,16 @@
 <ion-header>
     <ion-navbar>
-      <ion-title>
+      <ion-title color="secondary">
         Login 
       </ion-title>
     </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="auth-page">
     <div id="firebaseui-auth-container"></div>
-    <h2 class="header">
-      Shree Ganesh Chit Fund
-    </h2>
+    <div class="logo">
+      <img src="assets/imgs/ganesh_logo_1.png">
+    </div>
     <ion-item>
       <ion-label floating>Mobile Number</ion-label>
       <ion-input type="number" [(ngModel)]="phoneNumber"></ion-input>

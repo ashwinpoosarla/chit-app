@@ -14,3 +14,40 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+$primary-color: white;
+$secondary-color: black;
+$primary-bgcolor: #488aff;
+$secondary-bgcolor: black;
+$error-color: red;
+
+.chit-app-theme{
+    ion-header{
+        background-color: $primary-bgcolor;
+        ion-icon{
+            color: $primary-color;
+        }
+    }
+    .toolbar-background{
+        background-color: transparent;
+        border: none;
+    }
+    .toolbar-title{
+        color: $primary-color;
+    }
+}
+
+//Fonts
+@font-face{
+    font-family: Roboto;
+    src: url('../www/assets/fonts/roboto-regular.ttf') format('ttf');
+}
+
+body{
+    font-family: Roboto !important;
+}
+
+//Error classes
+%error{
+    color: $error-color;
+    font-size: 0.9em;
+}
